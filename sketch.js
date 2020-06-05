@@ -90,7 +90,7 @@ score = score + Math.round(getFrameRate()/60);
     }
     
      //jump when the space key is pressed
-    if(keyDown("space") && trex.y >= 359){
+    if(keyDown("space") && trex.y >= 161){
       trex.velocityY = -12 ;
       //playSound("jump.mp3");
     }
@@ -134,7 +134,7 @@ score = score + Math.round(getFrameRate()/60);
     
   }
   
-  if(mousePressedOver(restart)) {
+  if(mousePressedOver(restart)&& restart.visible==true) {
     reset();
   }
   
@@ -187,7 +187,7 @@ function spawnClouds() {
 function spawnObstacles() {
   if(frameCount % 60 === 0) {
     var obstacle = createSprite(600,165,10,40);
-    obstacle.velocityX = -4;
+    obstacle.velocityX = -(6 + 3*score/100);
     
     //generate random obstacles
     var rand = Math.round(random(1,6));
