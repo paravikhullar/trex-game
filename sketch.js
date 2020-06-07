@@ -31,6 +31,11 @@ function preload(){
   
   gameoverImg = loadImage("gameOver.png");
   restartImg = loadImage("restart.png");
+  
+    
+  checkPoint = loadSound('checkPoint.mp3');
+  die = loadSound('die.mp3');
+  jump = loadSound('jump.mp3');
 
 }
 
@@ -78,21 +83,22 @@ function draw() {
     //move the ground
     ground.velocityX = -(6 + 3*score/100);
     //scoring
-score = score + Math.round(getFrameRate()/60);  
+    score = score + Math.round(getFrameRate()/60);  
     
-    
-    /*if (count>0 && count%100 === 0){
-      playSound("checkPoint.mp3");
-    }*/
+    if (score>0 && score%100 === 0){
+      checkPoint.play();
+      //playSound("checkPoint.mp3");
+    }
     
     if (ground.x < 0){
       ground.x = ground.width/2;
     }
     
      //jump when the space key is pressed
-    if(keyDown("space") && trex.y >= 161){
+    if(keyDown("space") && trex.y > 150){
       trex.velocityY = -12 ;
       //playSound("jump.mp3");
+      jump.play();
     }
   
     //add gravity
@@ -109,6 +115,7 @@ score = score + Math.round(getFrameRate()/60);
       //playSound("jump.mp3");
       gameState = END;
       //playSound("die.mp3");
+      die.play();
     }
   }
   
