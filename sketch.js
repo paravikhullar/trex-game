@@ -70,10 +70,13 @@ function setup() {
   obstaclesGroup = new Group();
   
   score = 0;
+  
+  textStyle(BOLD);
+  
 }
 
 function draw() {
-  background(180);
+  background(250);
   
   
   text("Score: "+ score, 500,50);
