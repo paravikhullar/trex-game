@@ -55,7 +55,7 @@ function setup() {
   
   gameover = createSprite(300,70);
   gameover.addImage(gameoverImg);
-  restart = createSprite(300,90);
+  restart = createSprite(300,100);
   restart.addImage(restartImg);
   gameover.visible = false;
   restart.visible = false;
