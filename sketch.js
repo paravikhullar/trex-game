@@ -105,7 +105,7 @@ function draw() {
     }
   
     //add gravity
-    trex.velocityY = trex.velocityY + 0.8;
+    trex.velocityY = trex.velocityY + 1;
     
     //spawn the clouds
     spawnClouds();
@@ -174,7 +174,7 @@ function reset(){
 
 function spawnClouds() {
   //write code here to spawn the clouds
-  if (frameCount % 60 === 0) {
+  if (frameCount % 90 === 0) {
     var cloud = createSprite(600,120,40,10);
     cloud.y = Math.round(random(80,120));
     cloud.addImage(cloudImage);
